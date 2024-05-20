@@ -16,3 +16,4 @@ if(!empty($_POST["btnregistro"])){
         echo "<div class='alert alert-warning'>Modifica todos los campos</div>";
     }
 }
+?>
