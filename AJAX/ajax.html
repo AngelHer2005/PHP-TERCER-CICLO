@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Imagen de un Perro</h1>
+    <button id="boton" class="btn btn-primary">Cargar Imagen</button>
+    <div id="response" class="mt-4"></div>
+  </div>
+
+  <script>
+    function ajax() {
+      const http = new XMLHttpRequest();
+      const url = 'http://127.0.0.1:5500/tabla.html'; 
+      http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          document.getElementById('response').innerHTML = `
+            <h2>A continuación presentaremos una imagen y su descripción de ella.</h2>
+            ${this.responseText}
+          `;
+        }
+      };
+      http.open('GET', url, true);
+      http.send();
+    }
+
+    document.getElementById('boton').addEventListener("click", function () {
+      ajax();
+    });
+  </script>
+</body>
+</html>
