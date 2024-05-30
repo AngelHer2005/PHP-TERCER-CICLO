@@ -61,7 +61,15 @@
                 ?>
                 </tbody>
             </table>
-            <div class="text-end">
+            <div>
+                <?php
+                include "../BASE DE DATOS/conexion.php";
+                    $sql = $connection->query("SELECT SUM(precio) AS total FROM carrito");
+                    $total = $sql->fetch(PDO::FETCH_ASSOC)['total'];
+                    echo "<h5 class='text-center'>TOTAL A PAGAR: <span id='total-amount'>S/. $total</span></h5>";
+                ?>
+            </div>
+            <div class="text-center">
                 <a href="/vistas/ventas.php" class="btn btn-primary">Pagar</a>
             </div>
     </div>

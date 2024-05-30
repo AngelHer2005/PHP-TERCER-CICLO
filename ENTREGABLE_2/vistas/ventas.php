@@ -23,6 +23,14 @@
                 <label for="fecha_vencimiento" class="form-label">Fecha de Vencimiento:</label>
                 <input type="text" id="fecha_vencimiento" name="fecha_vencimiento" class="form-control" placeholder="YYYY-MM" required>
             </div>
+            <div>
+                <?php
+                include "../BASE DE DATOS/conexion.php";
+                    $sql = $connection->query("SELECT SUM(precio) AS total FROM carrito");
+                    $total = $sql->fetch(PDO::FETCH_ASSOC)['total'];
+                    echo "<h5 class='text-center'>TOTAL A PAGAR: <span id='total-amount'>S/. $total</span></h5>";
+                ?>
+            </div>
             <button type="submit" class="btn btn-primary w-100">Pagar <??></button>
         </form>
     </div>
