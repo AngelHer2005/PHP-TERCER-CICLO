@@ -11,7 +11,7 @@ $sql_verificar->execute();
 $resultado = $sql_verificar->fetch(PDO::FETCH_ASSOC);
 
 if ($resultado['total'] > 0) {
-    header("Location: ../vistas/HOME.php");
+    header("Location:../vistas/HOME.php");
 }
 
 ?>

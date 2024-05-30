@@ -9,7 +9,7 @@
     if($resultadoC["total"] > 0){
         $sql = $connection->prepare("UPDATE carrito SET cantidad = cantidad + 1 WHERE producto = '$producto'");
         if ($sql->execute()) {
-            header("Location: ../vistas/HOME.php#Productos");
+            header("Location:../vistas/HOME.php#Productos");
         }
     } else {
         $cantidad = 1;
